@@ -1,0 +1,32 @@
+server:
+  port: 8081
+  error:
+    whitelabel.enabled: false
+
+spring:
+  application:
+    name: lesson-content
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+
+management:
+  server:
+    port: 9081
+  endpoints:
+    enabled-by-default: false
+    web:
+      base-path: /lsh-checker
+    jmx:
+      exposure:
+        exclude: '*'
+  endpoint:
+    health:
+      enabled: true
+
+logging:
+  config: classpath:logback-spring.xml
